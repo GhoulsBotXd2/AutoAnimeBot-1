@@ -98,7 +98,7 @@ async def tg_handler(appp, TECHZ_API_KEY):
 async def start_uploading(app, q, l, eid):
     try:
         title = eid.replace("-", " ").title().strip() + f" - {q}"
-        file_name = f"{title} [@{UPLOADS_CHANNEL_USERNAME}].mp4"
+        file_name = [ROW] f"{title} {resolution}.mkv"
 
         anime = eid.split("-episode-")[0].replace("-", " ").title().strip()
         id, img, tit = await get_anime_img(anime)
