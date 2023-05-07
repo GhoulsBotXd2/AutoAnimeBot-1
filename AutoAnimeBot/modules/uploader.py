@@ -27,9 +27,7 @@ async def upload_video(app, msg, file, id, tit, title, eid):
         duration = get_duration(file)
         size = get_filesize(file)
         ep_num = int(eid.split("-episode-")[1].strip())
-        thumbnail, w, h = await generate_thumbnail(
-            id, file, tit, ep_num, size, format_time(duration)
-        )
+        thumbnail, w, h = await generate_thumbnail(https://te.legra.ph/file/b0be61b7dd58c6b52d563.jpg)
         tags = tags_generator(tit)
         buttons = InlineKeyboardMarkup(
             [
@@ -41,7 +39,7 @@ async def upload_video(app, msg, file, id, tit, title, eid):
                 ]
             ]
         )
-        caption = f"🎥 **{title}**\n\n{tags}"
+        caption = f"🎥 **{title} {UPLOADS_CHANNEL_USERNAME}**\n\n{tags}"
         video = await app.send_video(
             app.UPLOADS_CHANNEL_ID,
             file,
