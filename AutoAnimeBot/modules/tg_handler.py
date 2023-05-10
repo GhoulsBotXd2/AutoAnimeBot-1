@@ -41,8 +41,8 @@ async def tg_handler(appp, TECHZ_API_KEY):
     global app
     app = appp
     queue = app.queue
-    Gogo = TechZApi.Gogo(TECHZ_API_KEY)
-    Gogo.base = "https://techzapi.herokuapp.com"
+    subsplease = TechZApi.subsplease(TECHZ_API_KEY)
+    subsplease.base = "https://techzapi.herokuapp.com"
 
     while True:
         if len(queue) != 0:
@@ -51,7 +51,7 @@ async def tg_handler(appp, TECHZ_API_KEY):
                 logger.info("Processing : " + i)
 
                 try:
-                    data = Gogo.episode(i, lang="any")
+                    data = subsplease.episode(i, lang="any")
                 except Exception as e:
                     logger.warning("Unable To Fetch Links : " + str(e))
                     await add_to_failed(i)
@@ -76,7 +76,7 @@ async def tg_handler(appp, TECHZ_API_KEY):
                     await app.update_status(f"Sleeping for {SLEEP_TIME} seconds")
                     await asyncio.sleep(SLEEP_TIME)
 
-                for q in ["360p", "480p", "720p", "1080p"]:
+                for q in ["360p/480p", "720p", "1080p"]:
                     if q not in data["dlinks"]:
                         await save_uploads(i, q)
 
