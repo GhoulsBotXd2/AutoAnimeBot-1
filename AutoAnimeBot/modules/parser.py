@@ -34,7 +34,7 @@ async def auto_parser(TECHZ_API_KEY, app):
         for i in data:
             if i["id"] not in saved_anime:
                 if i["id"] in uanimes:
-                    if uanimes[i["id"]] == {"360p", "480p", "720p", "1080p"}:
+                    if uanimes[i["id"]] == {"360p/480p", "720p", "1080p"}:
                         continue
 
                 id = i["id"]
